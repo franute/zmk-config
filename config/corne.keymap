@@ -13,16 +13,20 @@
 #define LOWER 1
 #define RAISE 2
 
+&caps_word {
+    continue-list = <UNDERSCORE MINUS DELETE BACKSPACE LEFT RIGHT>;
+};
+
 / {
     behaviors {
-        qmk_ht: qmk_like_hold_tap {
+        ctrl_caps: qmk_like_hold_tap {
             compatible = "zmk,behavior-hold-tap";
             label = "TAP_PREFERRED_HOLD";
             #binding-cells = <2>;
             tapping-term-ms = <175>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
+            bindings = <&kp>, <&caps_word>;
         };
     };
 
@@ -38,7 +42,7 @@
 
             bindings = <
             &kp TAB   &kp Q   &kp W     &kp E     &kp R      &kp T        &kp Y       &kp U          &kp I    &kp O     &kp P    &kp ESC
- &qmk_ht LCTRL CAPS   &kp A   &kp S     &kp D     &kp F      &kp G        &kp H       &kp J          &kp K    &kp L  &kp SEMI    &kp SQT
+ &ctrl_caps LCTRL CAPS   &kp A   &kp S     &kp D     &kp F      &kp G        &kp H       &kp J          &kp K    &kp L  &kp SEMI    &kp SQT
           &kp LSHFT   &kp Z   &kp X     &kp C     &kp V      &kp B        &kp N       &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
                                      &kp LALT  &kp LGUI  &lt 1 RET  &lt 2 SPACE  &lt 3 BSPC  &mt RALT BSPC
             >;
