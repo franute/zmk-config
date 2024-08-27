@@ -12,22 +12,8 @@
 #define LOWER 1
 #define RAISE 2
 
-&caps_word {
-    continue-list = <UNDERSCORE MINUS DELETE BACKSPACE LEFT RIGHT>;
-};
-
 / {
     behaviors {
-        ctrl_caps: qmk_like_hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "TAP_PREFERRED_HOLD";
-            #binding-cells = <2>;
-            tapping-term-ms = <175>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&caps_word>;
-        };
-        
         td0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -69,10 +55,10 @@
             //                      |      |ADJUST|      |   | DEL  | BSPC |      |
 
             bindings = <
-  &none  &kp LA(F4)      &none  &kp LG(H)    &kp PSCRN     &none    &kp GRAVE  &kp HOME    &kp UP     &kp END    &none  &kp INS
-  &none   &kp LGUI   &kp LALT   &kp LSHFT    &kp LCTRL     &none    &kp TAB    &kp LEFT    &kp DOWN   &kp RIGHT  &none  &none
-  &trans      &none      &none      &none        &none     &none    &none      &kp PG_UP   &none      &kp PG_DN  &none  &none
-                                    &none        &mo 4     &trans   &kp DEL    &kp BSPC    &none
+  &none   &kp LA(F4)  &none     &kp LG(H)    &kp PSCRN  &none    &kp GRAVE  &kp HOME    &kp UP     &kp END    &none  &kp INS
+  &none   &kp LGUI    &kp LALT  &kp LSHFT    &kp LCTRL  &none    &kp TAB    &kp LEFT    &kp DOWN   &kp RIGHT  &none  &none
+  &trans  &none       &none     &none        &none      &none    &none      &kp PG_UP   &none      &kp PG_DN  &none  &none
+                                &none        &mo 4      &trans   &kp DEL    &kp BSPC    &none
             >;
         };
 
@@ -84,8 +70,8 @@
             //                    |LALT |LGUI |BSPC |   |     |     | ALT |
 
             bindings = <
-  &none  &kp N1        &kp N2    &kp N3    &kp N4    &kp N5       &kp N6    &kp N7    &kp N8          &kp N9    &kp N0   &kp GRAVE
-  &none  &kp EXCL      &kp AT    &kp HASH  &kp DLLR  &kp PERCENT  &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR  &kp RPAR &kp BSLH
+ &none   &kp N1        &kp N2    &kp N3    &kp N4    &kp N5       &kp N6    &kp N7    &kp N8          &kp N9    &kp N0   &kp GRAVE
+ &none   &kp EXCL      &kp AT    &kp HASH  &kp DLLR  &kp PERCENT  &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR  &kp RPAR &kp BSLH
  &trans  &kp LS(NUBS)  &kp NUBS  &td0      &td1      &kp UNDER    &kp MINUS &kp PLUS  &kp EQUAL       &kp DOT   &none    &kp PIPE
                                  &trans    &trans    &kp BSPC     &trans    &kp RALT  &none
             >;
@@ -93,10 +79,10 @@
 
         FN_LAYER {
             bindings = <
-  &none   &kp F1   &kp F2  &kp F3  &kp F4   &kp F5   &none   &none     &none      &none     &none    &none
-  &none   &kp F6   &kp F7  &kp F8  &kp F9  &kp F10   &none   &kp RCTRL &kp RSHFT  &kp LALT  &kp LGUI &none
-  &none  &kp F11  &kp F12   &none   &none    &none   &none   &none     &none      &none     &none    &none
-                            &none   &none    &none   &none   &none     &none
+  &none   &kp F1   &kp F2   &kp F3  &kp F4   &kp F5   &none   &none     &none      &none     &none    &none
+  &none   &kp F6   &kp F7   &kp F8  &kp F9   &kp F10  &none   &kp RCTRL &kp RSHFT  &kp LALT  &kp LGUI &none
+  &none   &kp F11  &kp F12  &none   &none    &none    &none   &none     &none      &none     &none    &none
+                            &none   &none    &none    &none   &none     &none
             >;
         };
 
